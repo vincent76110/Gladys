@@ -20,9 +20,10 @@ function createActions(store) {
         newPlanErrors.name = true;
         console.log("newPlanErrors.name 2");
       }
-      /* if (!state.newPlan.picture) {
+      if (!state.newPlan.picture) {
+        console.log("newPlanErrors.name 2" && state.newPlan);
         newPlanErrors.picture = true;
-      } */
+      }
       store.setState({
         newPlanErrors
       });
@@ -66,8 +67,9 @@ function createActions(store) {
       store.setState({
         newPlan: {
           name: null,
-          icon: null,
-          actions: [[]]
+          picture: null,
+          pictureName: null,
+          
         },
         newPlanErrors: null,
         createPlanStatus: null
@@ -91,13 +93,21 @@ function createActions(store) {
       console.log("Debut updatePlanPicture");
       const base64Image = await fileToBase64(e.target.files[0]);
       const newState = update(state, {
-          newPlanPicture: {
+          newPlan: {
+            pictureName: {
+              $set: e.target.value.replace("C:\\fakepath\\","")
+            },
+            picture: {
+              $set: base64Image
+            }
+          }
+          /* newPlanPicture: {
               $set: console.log(base64Image)
           } ,
           newPlanPictureName: {
               $set: e.target.value
               //console.log(e.target.value)
-          }
+          } */
 
           
       });

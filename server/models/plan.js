@@ -55,6 +55,10 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
       },
+      pictureName: {
+        allowNull: true,
+        type: DataTypes.STRING,
+      },
     },
     {},
   );
