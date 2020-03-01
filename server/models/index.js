@@ -1,3 +1,4 @@
+// @ts-nocheck
 const Sequelize = require('sequelize');
 const getConfig = require('../utils/getConfig');
 
@@ -20,6 +21,8 @@ const LocationModel = require('./location');
 const MessageModel = require('./message');
 const PodModel = require('./pod');
 const RoomModel = require('./room');
+
+const PlanModel = require('./plan');
 const SceneModel = require('./scene');
 const ScriptModel = require('./script');
 const ServiceModel = require('./service');
@@ -42,6 +45,7 @@ const models = {
   Message: MessageModel(sequelize, Sequelize),
   Pod: PodModel(sequelize, Sequelize),
   Room: RoomModel(sequelize, Sequelize),
+  Plan: PlanModel(sequelize, Sequelize),
   Scene: SceneModel(sequelize, Sequelize),
   Script: ScriptModel(sequelize, Sequelize),
   Service: ServiceModel(sequelize, Sequelize),

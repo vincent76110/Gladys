@@ -15,7 +15,9 @@ const EditRoomTemperatureBox = ({ children, ...props }) => (
         <Text id="dashboard.boxes.temperatureInRoom.editRoomLabel" />
       </label>
       <select onChange={updateBoxRoom(props.updateBoxRoom, props.x, props.y)} class="form-control">
-        <option value="">-------</option>
+        <option value="">
+          <Text id="global.emptySelectOption" />
+        </option>
         {props.rooms &&
           props.rooms.map(room => (
             <option selected={room.selector === props.box.room} value={room.selector}>

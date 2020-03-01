@@ -6,7 +6,7 @@ export const Models = {
   'sonoff-s2x': 8
 };
 
-export const GetFeatures = modelName => {
+export const getFeatures = modelName => {
   const modelKey = Models[modelName];
   if (modelKey && models[modelKey]) {
     return models[modelKey].getFeatures();

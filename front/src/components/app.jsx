@@ -33,10 +33,11 @@ import SignupConfigureHouse from '../routes/signup/4-configure-house';
 import SignupSuccess from '../routes/signup/5-success';
 
 import Dashboard from '../routes/dashboard';
+//import DashboardGeneralPage from '../routes/dashboard/general';
 import Device from '../routes/device';
 import IntegrationPage from '../routes/integration';
 import ChatPage from '../routes/chat';
-import MapPage from '../routes/map';
+import MapPage from '../routes/map/setupPlans-page';
 import CalendarPage from '../routes/calendar';
 import ScenePage from '../routes/scene';
 import NewScenePage from '../routes/scene/new-scene';
@@ -52,6 +53,16 @@ import SettingsBackup from '../routes/settings/settings-backup';
 import SettingsBilling from '../routes/settings/settings-billing';
 import SettingsGatewayUsers from '../routes/settings/settings-gateway-users';
 import SettingsGatewayOpenApi from '../routes/settings/settings-gateway-open-api';
+
+// Maps
+import MapWorldPage from '../routes/map/world-page';
+import MapSetupPlansPage from '../routes/map/setupPlans-page/'
+import NewPlanPage from '../routes/map/setupPlans-page/new-plan';
+import EditPlanPage from '../routes/map/setupPlans-page/edit-plan';
+/*import MapSetupViewsPage from '../routes/map/setupViews-page';
+import NewViewPage from '../routes/map/setupViews-page/new-view';
+import EditViewPage from '../routes/map/setupViews-page/edit-view';
+ */
 
 // Integrations
 import TelegramPage from '../routes/integration/all/telegram';
@@ -173,8 +184,17 @@ const AppRouter = connect(
         <SonoffDiscoverPage path="/dashboard/integration/device/sonoff/discover" />
 
         <ChatPage path="/dashboard/chat" />
+
         <MapPage path="/dashboard/maps" />
-        <CalendarPage path="/dashboard/calendar" />
+        <MapWorldPage path="/dashboard/maps/world" />
+        <MapSetupPlansPage path="/dashboard/maps/setupPlans" />
+        <NewPlanPage path="/dashboard/maps/setupPlans/new" />
+        <EditPlanPage path="/dashboard/maps/setupPlans/:plan_selector" />
+        {/* <MapSetupViewsPage path="/dashboard/maps/setupViews" />
+        <NewViewPage path="/dashboard/maps/setupViews/new" />
+        <EditViewPage path="/dashboard/maps/setupViews/:view_selector" /> */}
+
+        <CalendarPage path="/dashboard/calendar" /> 
         <ScenePage path="/dashboard/scene" />
         <NewScenePage path="/dashboard/scene/new" />
         <EditScenePage path="/dashboard/scene/:scene_selector" />

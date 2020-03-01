@@ -13,6 +13,8 @@ const MessageController = require('./controllers/message.controller');
 const RoomController = require('./controllers/room.controller');
 const SessionController = require('./controllers/session.controller');
 const ServiceController = require('./controllers/service.controller');
+const PlanController = require('./controllers/plan.controller');
+/* const ViewController = require('./controllers/view.controller'); */
 const SceneController = require('./controllers/scene.controller');
 const SystemController = require('./controllers/system.controller');
 const VariableController = require('./controllers/variable.controller');
@@ -42,6 +44,8 @@ function getRoutes(gladys) {
   const variableController = VariableController(gladys);
   const sessionController = SessionController(gladys);
   const serviceController = ServiceController(gladys);
+  const planController = PlanController(gladys);/* 
+  const viewController = ViewController(gladys); */
   const sceneController = SceneController(gladys);
   const systemController = SystemController(gladys);
   const weatherController = WeatherController(gladys);
@@ -380,6 +384,31 @@ function getRoutes(gladys) {
     'post /api/v1/light/:device_selector/on': {
       authenticated: true,
       controller: lightController.turnOn,
+    },
+    // map
+    'post /api/v1/maps/setupPlans': {
+      authenticated: true,
+      controller: planController.create,
+    },
+    'get /api/v1/maps/setupPlans': {
+      authenticated: true,
+      controller: planController.get,
+    },
+    'get /api/v1/maps/setupPlans/:plan_selector': {
+      authenticated: true,
+      controller: planController.getBySelector,
+    },
+    'patch /api/v1/maps/setupPlans/:plan_selector': {
+      authenticated: true,
+      controller: planController.update,
+    },
+    'delete /api/v1/maps/setupPlans/:plan_selector': {
+      authenticated: true,
+      controller: planController.destroy,
+    },
+    'get /api/v1/maps/setupPlans/picture': {
+      authenticated: true,
+      controller: planController.getPicture,
     },
     // scene
     'post /api/v1/scene': {

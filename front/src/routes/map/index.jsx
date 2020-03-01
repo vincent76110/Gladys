@@ -1,7 +1,6 @@
 import { Component } from 'preact';
 import { connect } from 'unistore/preact';
 import actions from '../../actions/map';
-import Map from './Map';
 
 @connect('usersWithLocation,housesWithLocation', actions)
 class MapPage extends Component {
@@ -15,9 +14,12 @@ class MapPage extends Component {
       <div class="page">
         <div class="page-main">
           <div class="my-3 my-md-5">
+            
+            {/*
+            // La map
             <div class="map-header">
               <Map users={props.usersWithLocation} houses={props.housesWithLocation} />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
