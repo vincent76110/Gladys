@@ -1,22 +1,22 @@
 import { Component } from 'preact';
 import { connect } from 'unistore/preact';
-import MapSetupPlansPage from './MapSetupPlansPage';
+import MapPlansPage from './MapPlansPage';
 import MapPage from './MapPage';
-import actions from '../../../actions/scene';
+import actions from '../../../actions/plan';
 import { RequestStatus } from '../../../utils/consts';
 
-@connect('scenes,currentUrl,scenesGetStatus', actions)
+@connect('plans,currentUrl,plansGetStatus', actions)
 class Map extends Component {
   componentWillMount() {
-    this.props.getScenes();
+    this.props.getPlans();
   }
 
   render(props, {}) {
-    const loading = props.scenesGetStatus === RequestStatus.Getting;
+    const loading = props.plansGetStatus === RequestStatus.Getting;
     
     return (
       <MapPage>
-        <MapSetupPlansPage {...props} loading={loading} />
+        <MapPlansPage {...props} loading={loading} />
       </MapPage>
     );
     

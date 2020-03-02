@@ -15,24 +15,24 @@ class NewPlanPage extends Component {
   render({ ...props }) {
     return (
       <div class={cx('container', style.containerWithMargin)}>
-        <Link href="/dashboard/maps/setupPlans" class="btn btn-secondary btn-sm">
-          <Text id="map.plans.setupPlans.newPlan.backButton" />
+        <Link href="/dashboard/maps/plans" class="btn btn-secondary btn-sm">
+          <Text id="map.plans.plansTab.newPlan.backButton" />
         </Link>
         <div class="row">
           <div class="col col-6 mx-auto">
             <form onSubmit={props.createPlan} class="card">
               <div class="card-body p-6">
                 <div class="card-title">
-                  <Text id="map.plans.setupPlans.newPlan.cardTitle" />
+                  <Text id="map.plans.plansTab.newPlan.cardTitle" />
                 </div>
                 {props.createPlanStatus === RequestStatus.ConflictError && (
                   <div class="alert alert-danger">
-                    <Text id="map.plans.setupPlans.newPlan.planAlreadyExist" />
+                    <Text id="map.plans.plansTab.newPlan.planAlreadyExist" />
                   </div>
                 )}
                 <div class="form-group">
                   <label class="form-label">
-                    <Text id="map.plans.setupPlans.newPlan.name.label" />
+                    <Text id="map.plans.plansTab.newPlan.name.label" />
                   </label>
                   
                   <Localizer>
@@ -42,18 +42,18 @@ class NewPlanPage extends Component {
                       class={cx('form-control', {
                         'is-invalid': get(props, 'newPlanErrors.name')
                       })}
-                      placeholder={<Text id="map.plans.setupPlans.newPlan.name.placeholder" />}
+                      placeholder={<Text id="map.plans.plansTab.newPlan.name.placeholder" />}
                       value={get(props, 'newPlan.name')}
                       onInput={props.updateNewPlanName}
                     />
                   </Localizer>
                   <div class="invalid-feedback">
-                    <Text id="map.plans.setupPlans.newPlan.name.invalid" />
+                    <Text id="map.plans.plansTab.newPlan.name.invalid" />
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="form-label">
-                    <Text id="map.plans.setupPlans.newPlan.picture.label" />
+                    <Text id="map.plans.plansTab.newPlan.picture.label" />
                   </label>
 
                   {/* <Localizer>
@@ -64,7 +64,7 @@ class NewPlanPage extends Component {
                           })}
                           style="width:400px;"
                           value={props.newPlanPicture}
-                          placeholder={<Text id="map.plans.setupPlans.newPlan.picture.chooseFile" />}
+                          placeholder={<Text id="map.plans.plansTab.newPlan.picture.chooseFile" />}
                     />
                   </Localizer> */}
 
@@ -79,18 +79,18 @@ class NewPlanPage extends Component {
 
                 </div>
 
-                <div class="alert alert-info"><Text id="map.plans.setupPlans.newPlan.house.info" /></div>
+                <div class="alert alert-info"><Text id="map.plans.plansTab.newPlan.house.info" /></div>
 
                         
                 <div class="form-group">
                   <label class="form-label">
-                    <Text id="map.plans.setupPlans.newPlan.house.label" />
+                    <Text id="map.plans.plansTab.newPlan.house.label" />
                   </label>
                   
 
                 <div class="form-group">
                   <label class="form-label" for="room">
-                    <Text id="integration.mqtt.device.roomLabel" />
+                    <Text id="map.plans.plansTab.newPlan.house.roomLabel" />
                   </label>
                   <select onChange={this.updateHouse} class="form-control" id="house">
                     <option value="">
@@ -128,7 +128,7 @@ class NewPlanPage extends Component {
                     class="btn btn-primary btn-block"
                     disabled={props.createPlanStatus === RequestStatus.Getting}
                   >
-                    <Text id="map.plans.setupPlans.newPlan.createPlanButton" />
+                    <Text id="map.plans.plansTab.newPlan.createPlanButton" />
                   </button>
 
                   

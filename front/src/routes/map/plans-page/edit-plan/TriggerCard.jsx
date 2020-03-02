@@ -21,7 +21,7 @@ const TriggerCard = ({ children, ...props }) => (
           }}
         />{' '}
         <Text id={`editScene.triggers.${props.trigger.type}`} />
-        {props.trigger.type === null && <Text id="map.plans.setupPlans.editPlan.newTrigger" />}
+        {props.trigger.type === null && <Text id="map.plans.plansTab.editPlan.newTrigger" />}
       </div>
       <div class="card-options">
         {false && (

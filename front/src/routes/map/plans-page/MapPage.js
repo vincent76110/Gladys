@@ -19,29 +19,18 @@ const DashboardSettings = ({ children, ...props }) => (
                     <span class="icon mr-3">
                       <i class="fe fe-radio" />
                     </span>
-                    <Text id="map.plans.worldTab" />
+                    <Text id="map.plans.worldTab.title" />
                   </Link>
 
                   <Link
-                    href="/dashboard/maps/setupPlans"
+                    href="/dashboard/maps/plans"
                     activeClassName="active"
                     class="list-group-item list-group-item-action d-flex align-items-center"
                   >
                     <span class="icon mr-3">
                       <i class="fe fe-sliders" />
                     </span>
-                    <Text id="map.plans.setupPlansTab" />
-                  </Link>
-
-                  <Link
-                    href="/dashboard/maps/setupViews"
-                    activeClassName="active"
-                    class="list-group-item list-group-item-action d-flex align-items-center"
-                  >
-                    <span class="icon mr-3">
-                      <i class="fe fe-wifi" />
-                    </span>
-                    <Text id="map.plans.setupViewsTab" />
+                    <Text id="map.plans.plansTab.title" />
                   </Link>
                 </div>
               </div>

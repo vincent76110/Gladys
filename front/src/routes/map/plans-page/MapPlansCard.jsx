@@ -3,9 +3,9 @@ import { Component } from 'preact';
 import { Link } from 'preact-router/match';
 //import style from './style.css';
 
-class MapSetupPlansCard extends Component {
-  startScene = () => {
-    this.props.startScene(this.props.scene.selector);
+class MapPlansCard extends Component {
+  startPlan = () => {
+    this.props.startPlan(this.props.plan.selector);
   };
 
   render(props, {}) {
@@ -19,7 +19,7 @@ class MapSetupPlansCard extends Component {
             <div class="btn-list text-center">
               <Link href={`${props.currentUrl}/Locataire-MANVIN`} class="btn btn-outline-primary btn-sm">
                 <i class="fe fe-edit" />
-                <Text id="scene.editButton" />
+                <Text id="plan.editButton" />
               </Link>
             </div>
           </div>
@@ -29,4 +29,4 @@ class MapSetupPlansCard extends Component {
   }
 }
 
-export default MapSetupPlansCard;
+export default MapPlansCard;
