@@ -5,11 +5,6 @@ const MAX_SIZE_PLAN_PICTURE = 2000 * 1024; // 80 ko à revoir
 
 module.exports = (sequelize, DataTypes) => {
   console.log('Debut plan');
-
-/*   require('fs').writeFile('out.png', base64Data, 'base64', function(err) {
-    console.log(err);
-  }); */
-
   const plan = sequelize.define(
     't_plan',
     {
@@ -49,13 +44,11 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.TEXT,
         validate: {
           customValidator(value) {
-            console.log('Taille1 ' && Buffer.byteLength(value.substring(value.indexOf(',') + 1), 'base64') && ', taille max' && MAX_SIZE_PLAN_PICTURE);
             if (value && value.length) {
               const base64ImageLength = Buffer.byteLength(value.substring(value.indexOf(',') + 1), 'base64');
-              console.log('Taille ' && base64ImageLength && ', taille max' && MAX_SIZE_PLAN_PICTURE);
-/*               if (base64ImageLength > MAX_SIZE_PLAN_PICTURE) {
+              if (base64ImageLength > MAX_SIZE_PLAN_PICTURE) {
                 throw new Error('Plan picture too big');
-              } */
+              }
             }
           },
         },
@@ -67,9 +60,6 @@ module.exports = (sequelize, DataTypes) => {
     },
     {},
   );
-
-  // console.log('Fin plan');
-
   // add slug if needed
   plan.beforeValidate(addSelector);
 
