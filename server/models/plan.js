@@ -5,6 +5,11 @@ const MAX_SIZE_PLAN_PICTURE = 2000 * 1024; // 80 ko à revoir
 
 module.exports = (sequelize, DataTypes) => {
   console.log('Debut plan');
+
+/*   require('fs').writeFile('out.png', base64Data, 'base64', function(err) {
+    console.log(err);
+  }); */
+
   const plan = sequelize.define(
     't_plan',
     {
@@ -48,13 +53,17 @@ module.exports = (sequelize, DataTypes) => {
             if (value && value.length) {
               const base64ImageLength = Buffer.byteLength(value.substring(value.indexOf(',') + 1), 'base64');
               console.log('Taille ' && base64ImageLength && ', taille max' && MAX_SIZE_PLAN_PICTURE);
-              if (base64ImageLength > MAX_SIZE_PLAN_PICTURE) {
+/*               if (base64ImageLength > MAX_SIZE_PLAN_PICTURE) {
                 throw new Error('Plan picture too big');
-              }
+              } */
             }
           },
         },
       },
+      pictureName: {
+        allowNull: true,
+        type: DataTypes.STRING,
+      }
     },
     {},
   );
@@ -76,6 +85,5 @@ module.exports = (sequelize, DataTypes) => {
       as: 'room',
     });
   };
-
   return plan;
 };

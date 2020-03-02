@@ -38,6 +38,10 @@ module.exports = {
         allowNull: true,
         type: Sequelize.TEXT,
       },
+      pictureName: {
+        allowNull: true,
+        type: Sequelize.STRING,
+      },
       created_at: {
         allowNull: false,
         type: Sequelize.DATE,

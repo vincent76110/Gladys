@@ -12,10 +12,9 @@ const asyncMiddleware = require('../middlewares/asyncMiddleware');
  *     }],
  *  }
  */
-console.log('Coucou fichier1');
+console.log('Entrée plan.controler');
 
 module.exports = function PlanController(gladys) {
-  console.log('Coucou fichier2');
   /**
    * @api {post} /api/v1/maps/setupPlans create
    * @apiName create
@@ -23,11 +22,15 @@ module.exports = function PlanController(gladys) {
    * @apiUse PlanParam
    */
   async function create(req, res) {
-    console.log('Coucou 1 create');
+    console.log(req.body.pictureName);
+    /* const base64Data = await req.body.replace('/^data:image\\/png;base64,/', '');
+    console.log(base64Data); */
+    console.log('Entrée plan.controler - create');
     const newPlan = await gladys.plan.create(req.body);
-    console.log('newPlan' && newPlan);
+    console.log('newPlan =' && newPlan);
     res.status(201).json(newPlan);
-    console.log('Coucou 2 create');
+    console.log('newPlan =' && newPlan);
+    console.log('Sortie plan.controler - create');
   }
 
   /**
@@ -56,7 +59,6 @@ module.exports = function PlanController(gladys) {
     res.json(plans);
     console.log('Coucou 2 get');
   }
-  console.log('Coucou fichier3');
   /**
    * @api {get} /api/v1/maps/setupPlans/:plan_selector get by selector
    * @apiName getBySelector
@@ -69,7 +71,6 @@ module.exports = function PlanController(gladys) {
     res.json(plan);
     console.log('Coucou 2 getBySelector');
   }
-  console.log('Coucou fichier4');
   /**
    * @api {delete} /api/v1/maps/setupPlans/:plan_selector delete
    * @apiName delete
@@ -82,7 +83,6 @@ module.exports = function PlanController(gladys) {
       success: true,
     });
   }
-  console.log('Coucou fichier5');
   /**
    * @api {get} /api/v1/maps/setupPlans/picture getPicture
    * @apiName getPicture
@@ -95,7 +95,7 @@ module.exports = function PlanController(gladys) {
     res.send(picture);
     console.log('Coucou 2 getPicture');
   }
-  console.log('Coucou fichier6');
+  console.log('Sortie plan.controler');
   return Object.freeze({
     create: asyncMiddleware(create),
     destroy: asyncMiddleware(destroy),

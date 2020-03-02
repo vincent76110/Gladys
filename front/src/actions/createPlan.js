@@ -20,9 +20,9 @@ function createActions(store) {
         newPlanErrors.name = true;
         console.log("newPlanErrors.name 2");
       }
-      /* if (!state.newPlan.picture) {
+      if (!state.newPlan.picture) {
         newPlanErrors.picture = true;
-      } */
+      }
       store.setState({
         newPlanErrors
       });
@@ -30,6 +30,7 @@ function createActions(store) {
     },
     async createPlan(state, e) {
       console.log("createPlan");
+      console.log(state.newPlan.picture);
       e.preventDefault();
       // if errored, we don't continue
       if (actions.checkErrors(state)) {
@@ -41,6 +42,9 @@ function createActions(store) {
       });
       try {
         const createdPlan = await state.httpClient.post('/api/v1/maps/setupPlans', state.newPlan);
+
+        // this.state.filePicture.copy("/assets/plans");
+
         store.setState({
           createPlanStatus: RequestStatus.Success
         });
@@ -66,8 +70,6 @@ function createActions(store) {
       store.setState({
         newPlan: {
           name: null,
-          icon: null,
-          actions: [[]]
         },
         newPlanErrors: null,
         createPlanStatus: null
@@ -91,19 +93,23 @@ function createActions(store) {
       console.log("Debut updatePlanPicture");
       const base64Image = await fileToBase64(e.target.files[0]);
       const newState = update(state, {
-          newPlanPicture: {
-              $set: console.log(base64Image)
-          } ,
-          newPlanPictureName: {
-              $set: e.target.value
-              //console.log(e.target.value)
-          }
-
+          
+          newPlan: {
+            picture: {
+              $set: base64Image
+            },
+            pictureName: {
+              $set: e.target.value.replace("C:\\fakepath\\","")
+            },
+            filePicture : {
+              $set: await e.target.files[0],// savePicture,
+            },
+          },
           
       });
 
+      console.log(newState);
       console.log("Fin updatePlanPicture");
-
       store.setState(newState);
     }
   };

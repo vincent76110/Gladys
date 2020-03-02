@@ -104,7 +104,7 @@
     },
     "configureHouse": {
       "title": "Configurez votre maison",
-      "description": "Toutes ces informations sont enregistrées uniquement dans la base de données locale de Gladys. Si vous avez plusieurs maisons, vous pouvez les configurer plus tard dans Gladys.",
+      "description": "Toutes ces informations sont enregistrées uniquement dans la base de données locale de Gladys. Si vous avez plusieurs maisons, vous pourrez les configurer plus tard dans Gladys.",
       "houseNameLabel": "Nom",
       "houseNamePlaceHolder": "Entrez le nom de votre maison",
       "houseNameError": "Le nom de la maison est requis",
@@ -799,30 +799,30 @@
   },
   "deviceFeatureCategory": {
     "light": {
-      "binary": "Lumière On/Off",
-      "brightness": "Luminosité",
-      "hue": "Teinte",
-      "color": "Couleur",
-      "saturation": "Saturation",
-      "temperature": "Température",
-      "power": "Puissance consommée"
+      "binary": "Eclairage On/Off",
+      "brightness": "Luminosité éclairage",
+      "hue": "Teinte éclairage",
+      "color": "Couleur éclairage",
+      "saturation": "Saturation éclairage",
+      "temperature": "Température éclairage",
+      "power": "Puissance consommée éclairage"
     },
     "battery": {
       "integer": "Batterie"
     },
     "temperature-sensor": {
-      "decimal": "Température"
+      "decimal": "Valeur température"
     },
     "motion-sensor": {
-      "push": "Mouvement",
-      "binary": "Mouvement"
+      "push": "Détecteur de mouvement",
+      "binary": "Détection mouvement Oui/Non"
     },
     "light-sensor": {
-      "integer": "Luminosité",
-      "decimal": "Luminosité"
+      "integer": "Capteur de luminosité - Oui/Non",
+      "decimal": "Luminosité apparente"
     },
     "sismic-sensor": {
-      "decimal": "Vibration"
+      "decimal": "Valeur sismique"
     },
     "camera": {
       "image": "Caméra"
@@ -831,11 +831,11 @@
       "mode": "Mode de contrôle d'accès"
     },
     "smoke-sensor": {
-      "binary": "Fumée",
-      "decimal": "Sensibilité"
+      "binary": "Capteur de fumée - Oui/Non",
+      "decimal": "Valeur feeeumée détectée"
     },
     "switch": {
-      "voltage": "Tension",
+      "voltage": "Tension moyenne",
       "current": "Intensité consommée",
       "binary": "Commutateur",
       "dimmer": "Variateur",
@@ -844,17 +844,17 @@
       "energy": "Energie consommée"
     },
     "siren": {
-      "binary": "Sirène"
+      "binary": "Sirène On/Off"
     },
     "cube": {
       "mode": "Mode",
       "rotation": "Rotation"
     },
     "button": {
-      "click": "Bouton"
+      "click": "Clic bouton - Oui/Non"
     },
     "pressure-sensor": {
-      "decimal": "Pression"
+      "decimal": "Valeur pression"
     },
     "leak-sensor": {
       "binary": "Fuite"
