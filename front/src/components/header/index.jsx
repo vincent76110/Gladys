@@ -97,6 +97,16 @@ const Header = ({ ...props }) => {
                 </li>
                 <li class="nav-item">
                   <Link
+                    href="/dashboard/view"
+                    class={classnames('nav-link', {
+                      active: props.currentUrl === '/dashboard/view'
+                    })}
+                  >
+                    <i class="fe fe-view" /> <Text id="header.view" />
+                  </Link>
+                </li>
+                <li class="nav-item">
+                  <Link
                     href="/dashboard/chat"
                     class={classnames('nav-link', {
                       active: props.currentUrl === '/dashboard/chat'

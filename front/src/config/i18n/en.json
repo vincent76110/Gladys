@@ -900,6 +900,7 @@
   "header": {
     "gladysAssistant": "Gladys Assistant",
     "home": "Accueil",
+    "view": "Vue",
     "chat": "Discussion",
     "devices": "Appareils",
     "integrations": "Intégrations",

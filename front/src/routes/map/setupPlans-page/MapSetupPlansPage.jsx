@@ -11,9 +11,6 @@ const MapSetupPlansPage = ({ children, ...props }) => (
       <div class="my-3 my-md-5">
         <div class="container">
           <div class="page-header">
-            <h1 class="page-title">
-              <Text id="scene.title" />
-            </h1>
             <div class="page-options d-flex">
               <select onChange={props.changeOrderDir} class="form-control custom-select w-auto">
                 <option value="asc">
