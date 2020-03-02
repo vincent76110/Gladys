@@ -14,7 +14,7 @@ const RoomController = require('./controllers/room.controller');
 const SessionController = require('./controllers/session.controller');
 const ServiceController = require('./controllers/service.controller');
 const PlanController = require('./controllers/plan.controller');
-/* const ViewController = require('./controllers/view.controller'); */
+const ViewController = require('./controllers/view.controller');
 const SceneController = require('./controllers/scene.controller');
 const SystemController = require('./controllers/system.controller');
 const VariableController = require('./controllers/variable.controller');
@@ -44,8 +44,8 @@ function getRoutes(gladys) {
   const variableController = VariableController(gladys);
   const sessionController = SessionController(gladys);
   const serviceController = ServiceController(gladys);
-  const planController = PlanController(gladys);/* 
-  const viewController = ViewController(gladys); */
+  const planController = PlanController(gladys);
+  const viewController = ViewController(gladys);
   const sceneController = SceneController(gladys);
   const systemController = SystemController(gladys);
   const weatherController = WeatherController(gladys);
@@ -385,7 +385,7 @@ function getRoutes(gladys) {
       authenticated: true,
       controller: lightController.turnOn,
     },
-    // map
+    // plan
     'post /api/v1/maps/setupPlans': {
       authenticated: true,
       controller: planController.create,
@@ -409,6 +409,31 @@ function getRoutes(gladys) {
     'get /api/v1/maps/setupPlans/picture': {
       authenticated: true,
       controller: planController.getPicture,
+    },
+    // view
+    'post /api/v1/maps/Views': {
+      authenticated: true,
+      controller: viewController.create,
+    },
+    'get /api/v1/maps/Views': {
+      authenticated: true,
+      controller: viewController.get,
+    },
+    'get /api/v1/maps/Views/:plan_selector': {
+      authenticated: true,
+      controller: viewController.getBySelector,
+    },
+    'patch /api/v1/maps/Views/:plan_selector': {
+      authenticated: true,
+      controller: viewController.update,
+    },
+    'delete /api/v1/maps/Views/:plan_selector': {
+      authenticated: true,
+      controller: viewController.destroy,
+    },
+    'get /api/v1/maps/Views/picture': {
+      authenticated: true,
+      controller: viewController.getPicture,
     },
     // scene
     'post /api/v1/scene': {

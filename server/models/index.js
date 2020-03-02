@@ -23,6 +23,7 @@ const PodModel = require('./pod');
 const RoomModel = require('./room');
 
 const PlanModel = require('./plan');
+const ViewModel = require('./view');
 const SceneModel = require('./scene');
 const ScriptModel = require('./script');
 const ServiceModel = require('./service');
@@ -46,6 +47,7 @@ const models = {
   Pod: PodModel(sequelize, Sequelize),
   Room: RoomModel(sequelize, Sequelize),
   Plan: PlanModel(sequelize, Sequelize),
+  View: ViewModel(sequelize, Sequelize),
   Scene: SceneModel(sequelize, Sequelize),
   Script: ScriptModel(sequelize, Sequelize),
   Service: ServiceModel(sequelize, Sequelize),

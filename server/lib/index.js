@@ -19,6 +19,7 @@ const Room = require('./room');
 const Scheduler = require('./scheduler');
 const StateManager = require('./state');
 const Plan = require('./plan');
+const View = require('./view');
 const Scene = require('./scene');
 const System = require('./system');
 const Variable = require('./variable');
@@ -33,6 +34,7 @@ const Weather = require('./weather');
  * @param {boolean} [params.disableBrainLoading] - If true, disable the loading of the brain.
  * @param {boolean} [params.disableRoomLoading] - If true, disable the loading of the rooms.
  * @param {boolean} [params.disablePlanLoading] - If true, disable the loading of the maps.
+ * @param {boolean} [params.disableViewLoading] - If true, disable the loading of the maps.
  * @param {boolean} [params.disableSceneLoading] - If true, disable the loading of the scenes.
  * @param {boolean} [params.disableDeviceLoading] - If true, disable the loading of devices in RAM.
  * @param {boolean} [params.disableUserLoading] - If true, disable the loading of users in RAM.
@@ -60,7 +62,8 @@ function Gladys(params = {}) {
   const user = new User(session, stateManager, variable);
   const location = new Location(user, event);
   const device = new Device(event, message, stateManager, service, room, variable);
-  const plan = new Plan(stateManager, event, device, message);
+  const plan = new Plan(stateManager, event, device, message,);
+  const view = new View(stateManager, event, device, message);
   const scene = new Scene(stateManager, event, device, message);
   const scheduler = new Scheduler(event);
   const system = new System(db.sequelize, event);
@@ -81,6 +84,7 @@ function Gladys(params = {}) {
     user,
     service,
     plan,
+    view,
     scene,
     scheduler,
     session,
@@ -101,6 +105,9 @@ function Gladys(params = {}) {
       }
       if (!params.disablePlanLoading) {
         await plan.init();
+      }
+      if (!params.disableViewLoading) {
+        await view.init();
       }
       if (!params.disableSceneLoading) {
         await scene.init();
