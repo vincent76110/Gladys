@@ -1,19 +1,18 @@
 import { Component } from 'preact';
 import { connect } from 'unistore/preact';
 import DashboardPage from './DashboardPage';
-import actions from '../../actions/dashboard';
+import actions from '../../actions/scene';
+import { RequestStatus } from '../../utils/consts';
 
-@connect(
-  'user,dashboardEditMode,dashboardNotConfigured,editDashboardDragEnable,homeDashboard,gatewayInstanceNotFound',
-  actions
-)
+@connect('scenes,currentUrl,scenesGetStatus', actions)
 class Dashboard extends Component {
-  componentWillMount() {
-    this.props.getBoxes();
-  }
-
   render(props, {}) {
-    return <DashboardPage {...props} />;
+    const loading = props.scenesGetStatus === RequestStatus.Getting;
+    
+    return (
+      <DashboardPage {...props} loading={loading} />
+    );  
+    
   }
 }
 

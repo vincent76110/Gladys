@@ -99,10 +99,13 @@ function createActions(store) {
             },
             picture: {
               $set: base64Image
-            }
+            },
+            imp: {
+              $set: console.log(base64Image)
+            },
           }
           /* newPlanPicture: {
-              $set: console.log(base64Image)
+              $set: console.log(base64Image)s
           } ,
           newPlanPictureName: {
               $set: e.target.value
@@ -115,7 +118,24 @@ function createActions(store) {
       console.log("Fin updatePlanPicture");
 
       store.setState(newState);
+    },
+    async getHouses(state) {
+      store.setState({
+        newPlanStatus: RequestStatus.Getting
+      });
+      try {
+        const houses = await state.httpClient.get('/api/v1/house');
+        store.setState({
+          houses,
+          newPlanStatus: RequestStatus.Success
+        });
+      } catch (e) {
+        store.setState({
+          newPlanStatus: RequestStatus.Error
+        });
+      }
     }
+
   };
   return actions;
 }
