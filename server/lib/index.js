@@ -103,7 +103,7 @@ function Gladys(params = {}) {
         await plan.init();
       }
       if (!params.disableSceneLoading) {
-        await plan.init();
+        await scene.init();
       }
       if (!params.disableDeviceLoading) {
         await device.init();

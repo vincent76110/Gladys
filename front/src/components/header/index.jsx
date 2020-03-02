@@ -87,7 +87,7 @@ const Header = ({ ...props }) => {
               <ul class="nav nav-tabs border-0 flex-column flex-lg-row">
                 <li class="nav-item">
                   <Link
-                    href="/dashboard"
+                    href="/dashboard/general"
                     class={classnames('nav-link', {
                       active: props.currentUrl === '/dashboard'
                     })}

@@ -1,7 +1,7 @@
 
 const { addSelector } = require('../utils/addSelector');
 
-const MAX_SIZE_PLAN_PICTURE = 2000 * 1024; // 80 ko à revoir
+const MAX_SIZE_PLAN_PICTURE = 5000 * 1024; // 80 ko à revoir
 
 module.exports = (sequelize, DataTypes) => {
   console.log('Debut plan');

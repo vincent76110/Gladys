@@ -70,6 +70,9 @@ function createActions(store) {
       store.setState({
         newPlan: {
           name: null,
+          picture: null,
+          pictureName: null,
+          
         },
         newPlanErrors: null,
         createPlanStatus: null
@@ -101,17 +104,30 @@ function createActions(store) {
             pictureName: {
               $set: e.target.value.replace("C:\\fakepath\\","")
             },
-            filePicture : {
-              $set: await e.target.files[0],// savePicture,
-            },
           },
-          
       });
 
       console.log(newState);
       console.log("Fin updatePlanPicture");
       store.setState(newState);
+    },
+    async getHouses(state) {
+      store.setState({
+        newPlanStatus: RequestStatus.Getting
+      });
+      try {
+        const houses = await state.httpClient.get('/api/v1/house');
+        store.setState({
+          houses,
+          newPlanStatus: RequestStatus.Success
+        });
+      } catch (e) {
+        store.setState({
+          newPlanStatus: RequestStatus.Error
+        });
+      }
     }
+
   };
   return actions;
 }

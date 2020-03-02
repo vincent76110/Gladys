@@ -1,8 +1,8 @@
-import WeatherBox from '../../components/boxs/weather/WeatherBox';
-import RoomTemperatureBox from '../../components/boxs/room-temperature/RoomTemperature';
-import CameraBox from '../../components/boxs/camera/Camera';
-import AtHomeBox from '../../components/boxs/user-presence/UserPresence';
-import DevicesInRoomsBox from '../../components/boxs/device-in-room/DevicesInRoomsBox';
+import WeatherBox from '../../../components/boxs/weather/WeatherBox';
+import RoomTemperatureBox from '../../../components/boxs/room-temperature/RoomTemperature';
+import CameraBox from '../../../components/boxs/camera/Camera';
+import AtHomeBox from '../../../components/boxs/user-presence/UserPresence';
+import DevicesInRoomsBox from '../../../components/boxs/device-in-room/DevicesInRoomsBox';
 
 const Box = ({ children, ...props }) => {
   switch (props.box.type) {

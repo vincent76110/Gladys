@@ -130,6 +130,8 @@
   },
   "dashboard": {
     "title": "Tableau de bord",
+    "generalTab": "Général",
+    "planTab": "Plan",
     "editDashboardButton": "Editer",
     "editDashboardCancelButton": "Annuler",
     "editDashboardSaveButton": "Sauvegarder",

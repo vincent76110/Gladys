@@ -86,12 +86,12 @@ module.exports = function PlanController(gladys) {
   /**
    * @api {get} /api/v1/maps/setupPlans/picture getPicture
    * @apiName getPicture
-   * @apiGroup User
+   * @apiGroup Plan
    *
    */
   async function getPicture(req, res, next) {
     console.log('Coucou 1 getPicture');
-    const picture = await gladys.map.getPicture(req.params.map_selector);
+    const picture = await gladys.plan.getPicture(req.params.map_selector);
     res.send(picture);
     console.log('Coucou 2 getPicture');
   }
