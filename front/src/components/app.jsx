@@ -32,7 +32,8 @@ import SignupPreferences from '../routes/signup/3-preferences';
 import SignupConfigureHouse from '../routes/signup/4-configure-house';
 import SignupSuccess from '../routes/signup/5-success';
 
-import DashboardGeneralPage from '../routes/dashboard/general';
+import DashboardPage from '../routes/dashboard';
+import ViewPage from '../routes/view';
 import Device from '../routes/device';
 import IntegrationPage from '../routes/integration';
 import ChatPage from '../routes/chat';
@@ -147,7 +148,8 @@ const AppRouter = connect(
         <SignupPreferences path="/signup/preference" />
         <SignupConfigureHouse path="/signup/configure-house" />
         <SignupSuccess path="/signup/success" />
-        <DashboardGeneralPage path="/dashboard/general" />
+        <DashboardPage path="/dashboard" />
+        <ViewPage path="/dashboard/view" />
         <Device path="/dashboard/device" />
         <IntegrationPage path="/dashboard/integration" />
         <IntegrationPage path="/dashboard/integration/device" />

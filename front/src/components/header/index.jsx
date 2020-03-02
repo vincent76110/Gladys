@@ -87,7 +87,7 @@ const Header = ({ ...props }) => {
               <ul class="nav nav-tabs border-0 flex-column flex-lg-row">
                 <li class="nav-item">
                   <Link
-                    href="/dashboard/general"
+                    href="/dashboard"
                     class={classnames('nav-link', {
                       active: props.currentUrl === '/dashboard'
                     })}
@@ -102,7 +102,7 @@ const Header = ({ ...props }) => {
                       active: props.currentUrl === '/dashboard/view'
                     })}
                   >
-                    <i class="fe fe-view" /> <Text id="header.view" />
+                    <i class="fe fe-eye" /> <Text id="header.view" />
                   </Link>
                 </li>
                 <li class="nav-item">
