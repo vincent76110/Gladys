@@ -16,7 +16,7 @@ const EditPlanPage = ({ children, ...props }) => (
                 marginRight: '20px'
               }}
             >
-              <Link href="/dashboard/maps/plans" class="btn btn-secondary btn-sm btn-block">
+              <Link href="/dashboard/map/plan" class="btn btn-secondary btn-sm btn-block">
                 ️ <Text id="map.plans.plansTab.editPlan.backButton" />
               </Link>
             </h1>

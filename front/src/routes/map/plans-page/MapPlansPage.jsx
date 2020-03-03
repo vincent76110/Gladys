@@ -36,7 +36,7 @@ const MapPlansPage = ({ children, ...props }) => (
                 />
                 </Localizer>
               </div>
-              <Link href="/dashboard/maps/plans/new" class="btn btn-outline-primary ml-2">
+              <Link href="/dashboard/map/plan/new" class="btn btn-outline-primary ml-2">
                 <Text id="plan.newButton" /> <i class="fe fe-plus" />
               </Link>
             </div>

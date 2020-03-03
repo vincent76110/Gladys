@@ -16,7 +16,7 @@ console.log('Entrée view.controler');
 
 module.exports = function ViewController(gladys) {
   /**
-   * @api {post} /api/v1/maps/Views create
+   * @api {post} /api/v1/view create
    * @apiName create
    * @apiGroup View
    * @apiUse ViewParam
@@ -34,7 +34,7 @@ module.exports = function ViewController(gladys) {
   }
 
   /**
-   * @api {patch} /api/v1/maps/Views/:view_selector update
+   * @api {patch} /api/v1/view/:view_selector update
    * @apiName update
    * @apiGroup View
    * @apiUse ViewParam
@@ -48,7 +48,7 @@ module.exports = function ViewController(gladys) {
   }
 
   /**
-   * @api {get} /api/v1/maps/Views get
+   * @api {get} /api/v1/view get
    * @apiName get
    * @apiGroup View
    *
@@ -60,7 +60,7 @@ module.exports = function ViewController(gladys) {
     console.log('Coucou 2 get');
   }
   /**
-   * @api {get} /api/v1/maps/Views/:view_selector get by selector
+   * @api {get} /api/v1/view/:view_selector get by selector
    * @apiName getBySelector
    * @apiGroup View
    *
@@ -72,7 +72,7 @@ module.exports = function ViewController(gladys) {
     console.log('Coucou 2 getBySelector');
   }
   /**
-   * @api {delete} /api/v1/maps/Views/:view_selector delete
+   * @api {delete} /api/v1/view/:view_selector delete
    * @apiName delete
    * @apiGroup View
    *
@@ -84,7 +84,7 @@ module.exports = function ViewController(gladys) {
     });
   }
   /**
-   * @api {get} /api/v1/maps/Views/picture getPicture
+   * @api {get} /api/v1/view/picture getPicture
    * @apiName getPicture
    * @apiGroup View
    *

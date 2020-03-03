@@ -58,9 +58,9 @@ import MapWorldPage from '../routes/map/world-page';
 import MapPlansPage from '../routes/map/plans-page/'
 import NewPlanPage from '../routes/map/plans-page/new-plan';
 import EditPlanPage from '../routes/map/plans-page/edit-plan';
-/*import MapSetupViewsPage from '../routes/map/setupViews-page';
-import NewViewPage from '../routes/map/setupViews-page/new-view';
-import EditViewPage from '../routes/map/setupViews-page/edit-view';
+/*import MapViewsPage from '../routes/map/views-page';
+import NewViewPage from '../routes/map/views-page/new-view';
+import EditViewPage from '../routes/map/views-page/edit-view';
  */
 
 // Integrations
@@ -186,12 +186,12 @@ const AppRouter = connect(
 
         <MapPage path="/dashboard/maps" />
         <MapWorldPage path="/dashboard/maps/world" />
-        <MapPlansPage path="/dashboard/maps/plans" />
-        <NewPlanPage path="/dashboard/maps/plans/new" />
-        <EditPlanPage path="/dashboard/maps/plans/:plan_selector" />
-        {/* <MapSetupViewsPage path="/dashboard/maps/setupViews" />
-        <NewViewPage path="/dashboard/maps/setupViews/new" />
-        <EditViewPage path="/dashboard/maps/setupViews/:view_selector" /> */}
+        <MapPlansPage path="/dashboard/map/plan" />
+        <NewPlanPage path="/dashboard/map/plan/new" />
+        <EditPlanPage path="/dashboard/map/plan/:plan_selector" />
+        {/* <MapViewsPage path="/dashboard/view" />
+        <NewViewPage path="/dashboard/view/new" />
+        <EditViewPage path="/dashboard/view/:view_selector" /> */}
 
         <CalendarPage path="/dashboard/calendar" /> 
         <ScenePage path="/dashboard/scene" />

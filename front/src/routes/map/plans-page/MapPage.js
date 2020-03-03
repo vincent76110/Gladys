@@ -23,7 +23,7 @@ const DashboardSettings = ({ children, ...props }) => (
                   </Link>
 
                   <Link
-                    href="/dashboard/maps/plans"
+                    href="/dashboard/map/plan"
                     activeClassName="active"
                     class="list-group-item list-group-item-action d-flex align-items-center"
                   >
