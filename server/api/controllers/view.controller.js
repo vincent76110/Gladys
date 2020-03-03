@@ -61,16 +61,28 @@ module.exports = function ViewController(gladys) {
     console.log('Coucou 2 get View controller');
   }
   /**
+   * @api {get} /api/v1/view/:plan_selector get by plan selector
+   * @apiName getByPlanSelector
+   * @apiGroup View
+   *
+   */
+  async function getByPlanSelector(req, res) {
+    console.log('Coucou 1 getByPlanSelector View controller');
+    const view = await gladys.view.getByPlanSelector(req.params.plan_selector);
+    res.json(view);
+    console.log('Coucou 2 getByPlanSelector');
+  }
+  /**
    * @api {get} /api/v1/view/:view_selector get by selector
    * @apiName getBySelector
    * @apiGroup View
    *
    */
   async function getBySelector(req, res) {
-    console.log('Coucou 1 getBySelector View controller');
+    console.log(`Coucou 1 getBySelector View controller ${req.params.view_selector}`);
     const view = await gladys.view.getBySelector(req.params.view_selector);
     res.json(view);
-    console.log('Coucou 2 getBySelector');
+    console.log('Coucou 2 getBySelector View controller');
   }
   /**
    * @api {delete} /api/v1/view/:view_selector delete
@@ -102,6 +114,7 @@ module.exports = function ViewController(gladys) {
     destroy: asyncMiddleware(destroy),
     get: asyncMiddleware(get),
     getBySelector: asyncMiddleware(getBySelector),
+    getByPlanSelector: asyncMiddleware(getByPlanSelector),
     getPicture: asyncMiddleware(getPicture),
     update: asyncMiddleware(update),
   });

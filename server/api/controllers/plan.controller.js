@@ -54,10 +54,10 @@ module.exports = function PlanController(gladys) {
    *
    */
   async function get(req, res) {
-    console.log('Coucou 1 get');
+    console.log('Coucou plan 1 get');
     const plans = await gladys.plan.get(req.query);
     res.json(plans);
-    console.log('Coucou 2 get');
+    console.log('Coucou plan 2 get');
   }
   /**
    * @api {get} /api/v1/map/plan/:plan_selector get by selector
@@ -66,10 +66,10 @@ module.exports = function PlanController(gladys) {
    *
    */
   async function getBySelector(req, res) {
-    console.log('Coucou 1 getBySelector');
+    console.log('Coucou 1 plan getBySelector');
     const plan = await gladys.plan.getBySelector(req.params.plan_selector);
     res.json(plan);
-    console.log('Coucou 2 getBySelector');
+    console.log('Coucou 2 plan getBySelector');
   }
   /**
    * @api {delete} /api/v1/map/plan/:plan_selector delete

@@ -1,4 +1,4 @@
-import { Text } from 'preact-i18n';
+/* import { Text } from 'preact-i18n'; */
 import ViewCards from './ViewCards';
 
 const ViewPage = ({ children, ...props }) => (
@@ -8,8 +8,8 @@ const ViewPage = ({ children, ...props }) => (
         <div class="container">
           <div class="page-header">
             <h1 class="page-title">
-              {/* {plan.name}
-               */}{props.views && <ViewCards {...props} />}
+             {/*  {props.plans.name} */}
+              {props.views && <ViewCards {...props} />}
             </h1>
           </div>
            
