@@ -33,7 +33,6 @@ import SignupConfigureHouse from '../routes/signup/4-configure-house';
 import SignupSuccess from '../routes/signup/5-success';
 
 import DashboardPage from '../routes/dashboard';
-import ViewPage from '../routes/view';
 import Device from '../routes/device';
 import IntegrationPage from '../routes/integration';
 import ChatPage from '../routes/chat';
@@ -59,10 +58,10 @@ import MapWorldPage from '../routes/map/world-page';
 import MapPlansPage from '../routes/map/plans-page/'
 import NewPlanPage from '../routes/map/plans-page/new-plan';
 import EditPlanPage from '../routes/map/plans-page/edit-plan';
-/*import MapViewsPage from '../routes/map/views-page';
-import NewViewPage from '../routes/map/views-page/new-view';
-import EditViewPage from '../routes/map/views-page/edit-view';
- */
+
+import ViewPage from '../routes/view';
+import EditViewPage from '../routes/view/edit-view';
+
 
 // Integrations
 import TelegramPage from '../routes/integration/all/telegram';
@@ -92,7 +91,7 @@ const defaultState = getDefaultState();
 const store = createStore(defaultState);
 
 const AppRouter = connect(
-  'currentUrl,user,profilePicture,showDropDown,showCollapsedMenu',
+  'currentUrl,user,profilePicture,showDropDown,showDropDownView,showCollapsedMenu',
   actions
 )(props => (
   <div id="app">
@@ -102,7 +101,9 @@ const AppRouter = connect(
         user={props.user}
         profilePicture={props.profilePicture}
         toggleDropDown={props.toggleDropDown}
+        toggleDropDownView={props.toggleDropDownView}
         showDropDown={props.showDropDown}
+        showDropDownView={props.showDropDownView}
         toggleCollapsedMenu={props.toggleCollapsedMenu}
         showCollapsedMenu={props.showCollapsedMenu}
         logout={props.logout}
@@ -149,7 +150,6 @@ const AppRouter = connect(
         <SignupConfigureHouse path="/signup/configure-house" />
         <SignupSuccess path="/signup/success" />
         <DashboardPage path="/dashboard" />
-        <ViewPage path="/dashboard/view" />
         <Device path="/dashboard/device" />
         <IntegrationPage path="/dashboard/integration" />
         <IntegrationPage path="/dashboard/integration/device" />
@@ -191,9 +191,8 @@ const AppRouter = connect(
         <MapPlansPage path="/dashboard/map/plan" />
         <NewPlanPage path="/dashboard/map/plan/new" />
         <EditPlanPage path="/dashboard/map/plan/:plan_selector" />
-        {/* <MapViewsPage path="/dashboard/view" />
-        <NewViewPage path="/dashboard/view/new" />
-        <EditViewPage path="/dashboard/view/:view_selector" /> */}
+        <ViewPage path="/dashboard/view/:view_selector" />
+        <EditViewPage path="/dashboard/view/edit/:view_selector" />
 
         <CalendarPage path="/dashboard/calendar" /> 
         <ScenePage path="/dashboard/scene" />

@@ -23,12 +23,18 @@ function createActions(store) {
       store.setState({
         currentUrl: e.url,
         showDropDown: false,
+        showDropDownView: false,
         showCollapsedMenu: false
       });
     },
     toggleDropDown(state) {
       store.setState({
         showDropDown: !state.showDropDown
+      });
+    },
+    toggleDropDownView(state) {
+      store.setState({
+        showDropDownView: !state.showDropDownView
       });
     },
     toggleCollapsedMenu(state) {

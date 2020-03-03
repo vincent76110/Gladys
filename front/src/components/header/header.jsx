@@ -2,6 +2,8 @@ import { Text, Localizer } from 'preact-i18n';
 import classnames from 'classnames';
 import { Link } from 'preact-router/match';
 import { isUrlInArray } from '../../utils/url';
+import SubMenuView from './subMenuView';
+import { RequestStatus } from '../../utils/consts';
 
 const PAGES_WITHOUT_HEADER = [
   '/login',
@@ -24,8 +26,11 @@ const Header = ({ ...props }) => {
   if (isUrlInArray(props.currentUrl, PAGES_WITHOUT_HEADER)) {
     return null;
   }
+
+  
+  const loading = props.viewsGetStatus === RequestStatus.Getting;
   return (
-    <div>
+    (<div>
       <div class="header py-4">
         <div class="container">
           <div class="d-flex">
@@ -95,16 +100,57 @@ const Header = ({ ...props }) => {
                     <i class="fe fe-home" /> <Text id="header.home" />
                   </Link>
                 </li>
-                <li class="nav-item">
+                <li class={'dropdown ' + (props.showDropDownView && ' show')}>
                   <Link
-                    href="/dashboard/view"
+                    onClick={props.toggleDropDownView}
+                    //href="/dashboard/view"
                     class={classnames('nav-link', {
                       active: props.currentUrl === '/dashboard/view'
                     })}
                   >
-                    <i class="fe fe-eye" /> <Text id="header.view" />
+                    <i class="fe fe-eye" /><Text id="header.view" />
                   </Link>
+                  {/* View submenu - Sous menu de Vue */}
+
+                  {/* {props.views.map(view => (
+      <ViewCard {...props} view={view}  />
+    ))} */}
+                {/* {props.plans && <PlanMenuView {...props} />} */}
+                
+                
+                <div class={'dropdown-menu dropdown-menu-arrow' + (props.showDropDownView && ' show')}>
+                  {/* <SubmenuView {...props} /> */}
+                  
+                  {props.plans && <SubMenuView {...props} loading={loading} />}
+                  {/* {console.log(`plan dans header = ${props.plans}`)} */}
+
+                </div>
+
                 </li>
+
+
+
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 <li class="nav-item">
                   <Link
                     href="/dashboard/chat"
@@ -158,7 +204,7 @@ const Header = ({ ...props }) => {
         </div>
       </div>
     </div>
-  );
+  ));
 };
 
 export default Header;

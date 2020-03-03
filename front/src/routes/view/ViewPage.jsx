@@ -8,12 +8,11 @@ const ViewPage = ({ children, ...props }) => (
         <div class="container">
           <div class="page-header">
             <h1 class="page-title">
-              <Text id="dashboard.title" />
+              {/* {plan.name}
+               */}{props.views && <ViewCards {...props} />}
             </h1>
           </div>
-          
-           {props.views && <ViewCards {...props} />}
-           {console.log(`props.views ${props.views}`)}
+           
         </div>
       </div>
     </div>
