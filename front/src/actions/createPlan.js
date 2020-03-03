@@ -41,14 +41,14 @@ function createActions(store) {
         createPlanStatus: RequestStatus.Getting
       });
       try {
-        const createdPlan = await state.httpClient.post('/api/v1/maps/plans', state.newPlan);
+        const createdPlan = await state.httpClient.post('/api/v1/map/plan', state.newPlan);
 
         // this.state.filePicture.copy("/assets/plans");
 
         store.setState({
           createPlanStatus: RequestStatus.Success
         });
-        route(`/dashboard/maps/plans/${createdPlan.selector}`);
+        route(`/dashboard/map/plan/${createdPlan.selector}`);
       } catch (e) {
         const status = get(e, 'response.status');
         

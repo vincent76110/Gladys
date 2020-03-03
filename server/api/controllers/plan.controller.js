@@ -16,7 +16,7 @@ console.log('Entrée plan.controler');
 
 module.exports = function PlanController(gladys) {
   /**
-   * @api {post} /api/v1/maps/setupPlans create
+   * @api {post} /api/v1/map/plan create
    * @apiName create
    * @apiGroup Plan
    * @apiUse PlanParam
@@ -34,7 +34,7 @@ module.exports = function PlanController(gladys) {
   }
 
   /**
-   * @api {patch} /api/v1/maps/setupPlans/:plan_selector update
+   * @api {patch} /api/v1/map/plan/:plan_selector update
    * @apiName update
    * @apiGroup Plan
    * @apiUse PlanParam
@@ -48,7 +48,7 @@ module.exports = function PlanController(gladys) {
   }
 
   /**
-   * @api {get} /api/v1/maps/setupPlans get
+   * @api {get} /api/v1/map/plan get
    * @apiName get
    * @apiGroup Plan
    *
@@ -60,7 +60,7 @@ module.exports = function PlanController(gladys) {
     console.log('Coucou 2 get');
   }
   /**
-   * @api {get} /api/v1/maps/setupPlans/:plan_selector get by selector
+   * @api {get} /api/v1/map/plan/:plan_selector get by selector
    * @apiName getBySelector
    * @apiGroup Plan
    *
@@ -72,7 +72,7 @@ module.exports = function PlanController(gladys) {
     console.log('Coucou 2 getBySelector');
   }
   /**
-   * @api {delete} /api/v1/maps/setupPlans/:plan_selector delete
+   * @api {delete} /api/v1/map/plan/:plan_selector delete
    * @apiName delete
    * @apiGroup Plan
    *
@@ -84,7 +84,7 @@ module.exports = function PlanController(gladys) {
     });
   }
   /**
-   * @api {get} /api/v1/maps/setupPlans/picture getPicture
+   * @api {get} /api/v1/map/plan/picture getPicture
    * @apiName getPicture
    * @apiGroup Plan
    *

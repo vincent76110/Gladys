@@ -15,7 +15,7 @@ class NewPlanPage extends Component {
   render({ ...props }) {
     return (
       <div class={cx('container', style.containerWithMargin)}>
-        <Link href="/dashboard/maps/plans" class="btn btn-secondary btn-sm">
+        <Link href="/dashboard/map/plan" class="btn btn-secondary btn-sm">
           <Text id="map.plans.plansTab.newPlan.backButton" />
         </Link>
         <div class="row">

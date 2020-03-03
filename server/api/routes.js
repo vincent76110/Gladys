@@ -386,52 +386,52 @@ function getRoutes(gladys) {
       controller: lightController.turnOn,
     },
     // plan
-    'post /api/v1/maps/setupPlans': {
+    'post /api/v1/map/plan': {
       authenticated: true,
       controller: planController.create,
     },
-    'get /api/v1/maps/setupPlans': {
+    'get /api/v1/map/plan': {
       authenticated: true,
       controller: planController.get,
     },
-    'get /api/v1/maps/setupPlans/:plan_selector': {
+    'get /api/v1/map/plan/:plan_selector': {
       authenticated: true,
       controller: planController.getBySelector,
     },
-    'patch /api/v1/maps/setupPlans/:plan_selector': {
+    'patch /api/v1/map/plan/:plan_selector': {
       authenticated: true,
       controller: planController.update,
     },
-    'delete /api/v1/maps/setupPlans/:plan_selector': {
+    'delete /api/v1/map/plan/:plan_selector': {
       authenticated: true,
       controller: planController.destroy,
     },
-    'get /api/v1/maps/setupPlans/picture': {
+    'get /api/v1/map/plan/picture': {
       authenticated: true,
       controller: planController.getPicture,
     },
     // view
-    'post /api/v1/maps/Views': {
+    'post /api/v1/view': {
       authenticated: true,
       controller: viewController.create,
     },
-    'get /api/v1/maps/Views': {
+    'get /api/v1/view': {
       authenticated: true,
       controller: viewController.get,
     },
-    'get /api/v1/maps/Views/:plan_selector': {
+    'get /api/v1/view/:plan_selector': {
       authenticated: true,
       controller: viewController.getBySelector,
     },
-    'patch /api/v1/maps/Views/:plan_selector': {
+    'patch /api/v1/view/:plan_selector': {
       authenticated: true,
       controller: viewController.update,
     },
-    'delete /api/v1/maps/Views/:plan_selector': {
+    'delete /api/v1/view/:plan_selector': {
       authenticated: true,
       controller: viewController.destroy,
     },
-    'get /api/v1/maps/Views/picture': {
+    'get /api/v1/view/picture': {
       authenticated: true,
       controller: viewController.getPicture,
     },
