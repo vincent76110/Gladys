@@ -54,11 +54,11 @@ import SettingsGatewayUsers from '../routes/settings/settings-gateway-users';
 import SettingsGatewayOpenApi from '../routes/settings/settings-gateway-open-api';
 
 // Maps
-import MapPage from '../routes/map/setupPlans-page';
+import MapPage from '../routes/map/plans-page';
 import MapWorldPage from '../routes/map/world-page';
-import MapSetupPlansPage from '../routes/map/setupPlans-page/'
-import NewPlanPage from '../routes/map/setupPlans-page/new-plan';
-import EditPlanPage from '../routes/map/setupPlans-page/edit-plan';
+import MapPlansPage from '../routes/map/plans-page/'
+import NewPlanPage from '../routes/map/plans-page/new-plan';
+import EditPlanPage from '../routes/map/plans-page/edit-plan';
 /*import MapSetupViewsPage from '../routes/map/setupViews-page';
 import NewViewPage from '../routes/map/setupViews-page/new-view';
 import EditViewPage from '../routes/map/setupViews-page/edit-view';
@@ -188,9 +188,9 @@ const AppRouter = connect(
 
         <MapPage path="/dashboard/maps" />
         <MapWorldPage path="/dashboard/maps/world" />
-        <MapSetupPlansPage path="/dashboard/maps/setupPlans" />
-        <NewPlanPage path="/dashboard/maps/setupPlans/new" />
-        <EditPlanPage path="/dashboard/maps/setupPlans/:plan_selector" />
+        <MapPlansPage path="/dashboard/maps/plans" />
+        <NewPlanPage path="/dashboard/maps/plans/new" />
+        <EditPlanPage path="/dashboard/maps/plans/:plan_selector" />
         {/* <MapSetupViewsPage path="/dashboard/maps/setupViews" />
         <NewViewPage path="/dashboard/maps/setupViews/new" />
         <EditViewPage path="/dashboard/maps/setupViews/:view_selector" /> */}

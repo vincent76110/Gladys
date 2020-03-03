@@ -16,17 +16,17 @@ const EditPlanPage = ({ children, ...props }) => (
                 marginRight: '20px'
               }}
             >
-              <Link href="/dashboard/maps/setupPlans" class="btn btn-secondary btn-sm btn-block">
-                ️ <Text id="map.plans.setupPlans.editPlan.backButton" />
+              <Link href="/dashboard/maps/plans" class="btn btn-secondary btn-sm btn-block">
+                ️ <Text id="map.plans.plansTab.editPlan.backButton" />
               </Link>
             </h1>
             <h1 class="page-title">Locataire MANVIN</h1>
             <div class="page-options d-flex">
               <button disabled={props.saving} class="btn btn-sm btn-success ml-2">
-                <Text id="map.plans.setupPlans.editPlan.saveButton" /> <i class="fe fe-save" />
+                <Text id="map.plans.plansTab.editPlan.saveButton" /> <i class="fe fe-save" />
               </button>
               <button class="btn btn-sm btn-danger ml-2">
-                <Text id="map.plans.setupPlans.editPlan.deleteButton" /> <i class="fe fe-trash" />
+                <Text id="map.plans.plansTab.editPlan.deleteButton" /> <i class="fe fe-trash" />
               </button>
             </div>
           </div>

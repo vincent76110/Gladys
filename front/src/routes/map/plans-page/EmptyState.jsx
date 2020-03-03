@@ -5,7 +5,7 @@ const EmptyState = ({ children, ...props }) => (
   <div class={style.emptyStateDivBox}>
     <img src="/assets/images/undraw_personalization.svg" class={style.emptyStateImage} />
     <p class={style.emptyStateText}>
-      <Text id="scene.emptySceneSentenceTop" />
+      <Text id="plan.emptyPlanSentenceTop" />
     </p>
   </div>
 );

@@ -9,11 +9,11 @@ const TriggerGroup = ({ children, ...props }) => (
       <div class="card-status bg-green" />
       <div class="card-header">
         <h4 class="text-center card-title ">
-          <Text id="map.plans.setupPlans.editPlan.triggersTitle" />
+          <Text id="map.plans.plansTab.editPlan.triggersTitle" />
         </h4>
         <div class="card-options">
           <button class="btn btn-outline-primary" onClick={props.addTrigger}>
-            <Text id="map.plans.setupPlans.editPlan.addNewTriggerButton" /> <i class="fe fe-plus" />
+            <Text id="map.plans.plansTab.editPlan.addNewTriggerButton" /> <i class="fe fe-plus" />
           </button>
         </div>
       </div>
@@ -27,12 +27,12 @@ const TriggerGroup = ({ children, ...props }) => (
           <div class="dimmer-content">
             {props.triggers && props.triggers.length > 0 && (
               <div class="alert alert-info">
-                <Text id="editScene.triggersDescription" />
+                <Text id="map.plans.plansTab.editPlan.triggersDescription" />
               </div>
             )}
             {/* props.triggers && props.triggers.length === 0 && */ (
               <div class="text-center">
-                <Text id="map.plans.setupPlans.editPlan.noTriggersYet" />
+                <Text id="map.plans.plansTab.editPlan.noTriggersYet" />
               </div>
             )}
             <div class="row">
