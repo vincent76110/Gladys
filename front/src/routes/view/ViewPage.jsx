@@ -11,8 +11,9 @@ const ViewPage = ({ children, ...props }) => (
               <Text id="dashboard.title" />
             </h1>
           </div>
+          
            {props.views && <ViewCards {...props} />}
-           ViewPage
+           {console.log(`props.views ${props.views}`)}
         </div>
       </div>
     </div>

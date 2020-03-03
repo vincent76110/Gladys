@@ -19,8 +19,9 @@ const DEFAULT_OPTIONS = {
  * });
  */
 async function get(options) {
+  console.log(`options= ${options}`);
   const optionsWithDefault = Object.assign({}, DEFAULT_OPTIONS, options);
-
+  console.log(`optionsWithDefault= ${optionsWithDefault}`);
   const queryParams = {
     attributes: optionsWithDefault.fields,
     offset: optionsWithDefault.skip,

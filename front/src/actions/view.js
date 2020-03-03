@@ -9,18 +9,21 @@ extend('$auto', function(value, object) {
 function createActions(store) {
   const actions = {
     async getViews(state) {
+      console.log(`getViews state= ${state}`);
       store.setState({
         viewsGetStatus: RequestStatus.Getting
+        
       });
       try {
-        /* const orderDir = state.getViewsOrderDir || 'asc';
+        const orderDir = state.getViewsOrderDir || 'asc';
         const params = {
           order_dir: orderDir
         };
         if (state.viewSearch && state.viewSearch.length) {
           params.search = state.viewSearch;
-        } */
-        const views = await state.httpClient.get('/api/v1/view'/* , params */);
+        }
+        const views = await state.httpClient.get('/api/v1/view' , params);
+        console.log(`getViews views= ${views[0].name}`);
         store.setState({
           views,
           viewsGetStatus: RequestStatus.Success

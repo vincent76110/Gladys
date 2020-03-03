@@ -4,14 +4,14 @@ import ViewPage from './ViewPage';
 import actions from '../../actions/view';
 import { RequestStatus } from '../../utils/consts';
 
-@connect('scenes,currentUrl,scenesGetStatus', actions)
+@connect('views,currentUrl,viewsGetStatus', actions)
 class View extends Component {
   componentWillMount() {
     this.props.getViews();
   }
 
   render(props, {}) { 
-    const loading = props.viewGetStatus === RequestStatus.Getting;
+    const loading = props.viewsGetStatus === RequestStatus.Getting;
     return <ViewPage {...props} loading={loading} />;
   }
 }

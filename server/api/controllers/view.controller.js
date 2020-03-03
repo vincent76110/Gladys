@@ -54,10 +54,11 @@ module.exports = function ViewController(gladys) {
    *
    */
   async function get(req, res) {
-    console.log('Coucou 1 get');
+    console.log('Coucou 1 get View controller');
+    console.log(`req.query= ${req.query}`);
     const views = await gladys.view.get(req.query);
     res.json(views);
-    console.log('Coucou 2 get');
+    console.log('Coucou 2 get View controller');
   }
   /**
    * @api {get} /api/v1/view/:view_selector get by selector
@@ -66,7 +67,7 @@ module.exports = function ViewController(gladys) {
    *
    */
   async function getBySelector(req, res) {
-    console.log('Coucou 1 getBySelector');
+    console.log('Coucou 1 getBySelector View controller');
     const view = await gladys.view.getBySelector(req.params.view_selector);
     res.json(view);
     console.log('Coucou 2 getBySelector');
@@ -90,12 +91,12 @@ module.exports = function ViewController(gladys) {
    *
    */
   async function getPicture(req, res, next) {
-    console.log('Coucou 1 getPicture');
+    console.log('Coucou 1 getPicture View controller');
     const picture = await gladys.view.getPicture(req.params.map_selector);
     res.send(picture);
-    console.log('Coucou 2 getPicture');
+    console.log('Coucou 2 getPicture View controller');
   }
-  console.log('Sortie view.controler');
+  console.log('Sortie view.controler View controller');
   return Object.freeze({
     create: asyncMiddleware(create),
     destroy: asyncMiddleware(destroy),

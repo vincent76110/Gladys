@@ -5,7 +5,7 @@ const ViewCards = ({ children, ...props }) => (
     {props.views.map(view => (
       <ViewCard {...props} view={view}  />
     ))}
-    ViewCards
+    {console.log(`props.views ${props.views[0].name}`)}
   </div>
 );
 
