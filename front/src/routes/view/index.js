@@ -66,7 +66,7 @@ import ViewPage from './ViewPage';
 
 @connect('session,httpClient,views,currentUrl,viewsGetStatus')
 class View extends Component {
-  getPlanBySelector = async () => {
+  getViewBySelector = async () => {
     //console.log(`getViews state= ${this.props.views_selector}`);
     this.setState({
       ViewGetStatus: RequestStatus.Getting
@@ -290,7 +290,7 @@ class View extends Component {
   }
 
   componentDidMount() {
-    this.getPlanBySelector();
+    this.getViewBySelector();
     this.props.session.dispatcher.addListener('view.executing-action', payload =>
       this.highlighCurrentlyExecutedAction(payload)
     );
@@ -300,7 +300,7 @@ class View extends Component {
   }
 
   render(props, { saving, error, variables, view }) {
-    const loading = props.viewsGetStatus === RequestStatus.Getting;
+   // const loading = props.viewsGetStatus === RequestStatus.Getting;
     return (
       view && (
         <ViewPage
@@ -319,7 +319,6 @@ class View extends Component {
           error={error}
           variables={variables}
           setVariables={this.setVariables} */
-          loading={loading}
         />
       )
     );

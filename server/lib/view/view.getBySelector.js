@@ -10,7 +10,7 @@ const { NotFoundError } = require('../../utils/coreErrors');
  */
 async function getBySelector(selector) {
   console.log(`Coucou 1 getBySelector view.getBySelector`);
-  const view = await db.Plan.findOne({
+  const view = await db.View.findOne({
     where: {
       selector,
     },

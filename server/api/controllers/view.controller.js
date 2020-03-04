@@ -80,8 +80,16 @@ module.exports = function ViewController(gladys) {
    */
   async function getBySelector(req, res) {
     console.log(`Coucou 1 getBySelector View controller ${req.params.view_selector}`);
-    const view = await gladys.view.getBySelector(req.params.view_selector);
-    res.json(view);
+    try{
+      console.log(`Coucou 11 getBySelector View controller ${req.params.view_selector}`);
+      const view = await gladys.view.getBySelector(req.params.view_selector);
+      res.json(view);
+    } catch (e){
+      console.log(`Coucou 12 getBySelector View controller ${req.params.view_selector}`);
+      const view = await gladys.view.getByPlanSelector(req.params.view_selector);
+      res.json(view);
+    }
+    
     console.log('Coucou 2 getBySelector View controller');
   }
   /**
