@@ -20,7 +20,7 @@ const EditScenePage = ({ children, ...props }) => (
                 <Text id="global.backButton" />
               </Link>
             </h1>
-            <h1 class="page-title">{props.scene.name}</h1>
+            <h1 class="page-title">{console.log(props.scene)}</h1>
             <div class="page-options d-flex">
               <button onClick={props.startScene} class="btn btn-sm btn-primary ml-2">
                 <Text id="editScene.startButton" /> <i class="fe fe-play" />

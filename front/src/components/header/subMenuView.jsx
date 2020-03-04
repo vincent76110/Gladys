@@ -1,8 +1,8 @@
+import View from "../../routes/view";
 
 /* href={"/dashboard/view/"+(props.plan.name)} */
   {/* <a>coucou</a> */}
-
-
+  
 const subMenuView = ({ children, ...props }) => (
   <div>
     {props.plans.map(plan => (<a class="dropdown-item" href={"/dashboard/view/"+(plan.selector)}>
@@ -12,5 +12,9 @@ const subMenuView = ({ children, ...props }) => (
   </div>
 
 );
+
+
+
+
 
 export default subMenuView;

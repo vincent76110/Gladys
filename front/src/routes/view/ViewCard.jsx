@@ -1,5 +1,5 @@
-import { Component } from 'preact';
-import style from './style.css';
+import { Component } from 'preact';/* 
+import style from './style.css'; */
 
 class ViewCard extends Component {
   startScene = () => {

@@ -423,10 +423,10 @@ function getRoutes(gladys) {
       authenticated: true,
       controller: viewController.getBySelector,
     },
-    'get /api/v1/view/:plan_selector': {
+/*     'get /api/v1/view/:plan_selector': {
       authenticated: true,
       controller: viewController.getByPlanSelector,
-    },
+    }, */
     'patch /api/v1/view/:plan_selector': {
       authenticated: true,
       controller: viewController.update,

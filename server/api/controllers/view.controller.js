@@ -54,23 +54,8 @@ module.exports = function ViewController(gladys) {
    *
    */
   async function get(req, res) {
-    console.log('Coucou 1 get View controller');
-    console.log(`req.query= ${req.query}`);
     const views = await gladys.view.get(req.query);
     res.json(views);
-    console.log('Coucou 2 get View controller');
-  }
-  /**
-   * @api {get} /api/v1/view/:plan_selector get by plan selector
-   * @apiName getByPlanSelector
-   * @apiGroup View
-   *
-   */
-  async function getByPlanSelector(req, res) {
-    console.log('Coucou 1 getByPlanSelector View controller');
-    const view = await gladys.view.getByPlanSelector(req.params.plan_selector);
-    res.json(view);
-    console.log('Coucou 2 getByPlanSelector');
   }
   /**
    * @api {get} /api/v1/view/:view_selector get by selector
@@ -79,18 +64,8 @@ module.exports = function ViewController(gladys) {
    *
    */
   async function getBySelector(req, res) {
-    console.log(`Coucou 1 getBySelector View controller ${req.params.view_selector}`);
-    try{
-      console.log(`Coucou 11 getBySelector View controller ${req.params.view_selector}`);
       const view = await gladys.view.getBySelector(req.params.view_selector);
       res.json(view);
-    } catch (e){
-      console.log(`Coucou 12 getBySelector View controller ${req.params.view_selector}`);
-      const view = await gladys.view.getByPlanSelector(req.params.view_selector);
-      res.json(view);
-    }
-    
-    console.log('Coucou 2 getBySelector View controller');
   }
   /**
    * @api {delete} /api/v1/view/:view_selector delete
@@ -121,8 +96,8 @@ module.exports = function ViewController(gladys) {
     create: asyncMiddleware(create),
     destroy: asyncMiddleware(destroy),
     get: asyncMiddleware(get),
-    getBySelector: asyncMiddleware(getBySelector),
-    getByPlanSelector: asyncMiddleware(getByPlanSelector),
+    getBySelector: asyncMiddleware(getBySelector), /* 
+    getByPlanSelector: asyncMiddleware(getByPlanSelector), */
     getPicture: asyncMiddleware(getPicture),
     update: asyncMiddleware(update),
   });

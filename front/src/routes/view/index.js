@@ -66,6 +66,43 @@ import ViewPage from './ViewPage';
 
 @connect('session,httpClient,views,currentUrl,viewsGetStatus')
 class View extends Component {
+  getPlanBySelector = async () => {
+    //console.log(`getViews state= ${this.props.views_selector}`);
+    this.setState({
+      PlanGetStatus: RequestStatus.Getting
+    });
+    try {
+      console.log(`plan try et ${this.props.view_selector}`);
+      console.log(`${this.props.plan_selector}`);
+      const plan = await this.props.httpClient.get(`/api/v1/map/plan/${this.props.view_selector}`);
+      /* if (view.deviceFeature[view.deviceFeature.length - 1].length > 0) {
+        console.log(`view = `);
+        view.deviceFeature.push([]);
+      }
+      if (!view.triggers) {
+        console.log(`view = `);
+        view.triggers = [];
+      } */
+      console.log(` aaaaaaaaaaaaaaaaaaa plan.pictureName = ${plan.pictureName}`);
+      console.log(`aaaaaaaaaaaaaaaaaaaa plan.name = ${plan.name}`);
+      console.log(`aaaaaaaaaaaaaaaaaaaa plan.name = ${plan.plan_id}`);
+      /* const variables = [];
+      view.deviceFeature.forEach(actionGroup => {
+        console.log(`view = `);
+        variables.push(actionGroup.map(action => []));
+      });
+      */
+      this.setState({
+        plan,
+        PlanGetStatus: RequestStatus.Success
+      });
+    } catch (e) {
+      console.log(`plan catch`);
+      this.setState({
+        PlanGetStatus: RequestStatus.Error
+      });
+    }
+  };
   getViewBySelector = async () => {
     //console.log(`getViews state= ${this.props.views_selector}`);
     this.setState({
@@ -85,22 +122,54 @@ class View extends Component {
         console.log(`view = `);
         view.triggers = [];
       } */
-      console.log(`${view.pictureName}`);
-      console.log(`${view.name}`);
+      console.log(` aaaaaaaaaaaaaaaaaaa view.pictureName = ${view.pictureName}`);
+      console.log(`aaaaaaaaaaaaaaaaaaaa view.name = ${view.name}`);
+      console.log(`aaaaaaaaaaaaaaaaaaaa view.name = ${view.plan_id}`);
       /* const variables = [];
       view.deviceFeature.forEach(actionGroup => {
         console.log(`view = `);
         variables.push(actionGroup.map(action => []));
-      });
+      }); */
       this.setState({
         view,
-        variables,
         ViewGetStatus: RequestStatus.Success
-      }); */
+      });
     } catch (e) {
       console.log(`view catch`);
       this.setState({
         ViewGetStatus: RequestStatus.Error
+      });
+    }
+  };
+  getViews = async () => {
+    console.log(`pppppppppppppp getViews views=`);
+    this.setState({
+      GetStatus: RequestStatus.Getting
+    });
+    console.log(`2344pppppppppppppp getViews views=`);
+    try {
+      
+      console.log(`ppppppppppppppsffsgvsgvq getViews views=`);
+      const orderDir = this.getViewsOrderDir || 'asc';
+      const params = {
+        order_dir: orderDir
+      };
+      
+      console.log(params);
+      if (this.viewSearch && this.viewSearch.length) {
+        params.search = this.viewSearch;
+      }
+      console.log(params);
+      const views = await this.props.httpClient.get('/api/v1/view' , params);
+      console.log(views);
+      console.log(`fin getViews views=`);
+      this.setState({
+        views,
+        GetStatus: RequestStatus.Success
+      });
+    } catch (e) {
+      this.setState({
+        GetStatus: RequestStatus.Error
       });
     }
   };
@@ -283,29 +352,46 @@ class View extends Component {
 
   constructor(props) {
     super(props);
+    
     this.state = {
       view: null,
-      variables: {}
+      plan: null,
+/*       variables: {} */
     };
   }
+  
 
   componentDidMount() {
+    this.getPlanBySelector();
     this.getViewBySelector();
-    this.props.session.dispatcher.addListener('view.executing-action', payload =>
+    this.getViews();
+
+    
+/*     this.props.session.dispatcher.addListener('view.executing-action', payload =>
       this.highlighCurrentlyExecutedAction(payload)
     );
     this.props.session.dispatcher.addListener('view.finished-executing-action', payload =>
       this.removeHighlighAction(payload)
-    );
+    ); */
   }
 
-  render(props, { saving, error, variables, view }) {
-   // const loading = props.viewsGetStatus === RequestStatus.Getting;
+  
+
+  
+
+
+
+  render(props, {plan, error, view, views}) {
+    
+    const loading = props.PlanGetStatus === RequestStatus.Getting;
     return (
-      view && (
+      plan && (
         <ViewPage
-          {...props}
+         {...props}
           view={view}
+          views={views}
+          plan={plan}
+          /* {console.log({view})} */
          /*  startView={this.startView}
           deleteView={this.deleteView}
           saveView={this.saveView}
@@ -319,9 +405,11 @@ class View extends Component {
           error={error}
           variables={variables}
           setVariables={this.setVariables} */
+          loading={loading}
         />
       )
     );
+    
   }
 }
 
